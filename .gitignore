@@ -1,0 +1,9 @@
+
+.idea/
+db.sqlite3
+oes.iml
+*.pyc
+*~
+__pycache__
+/static
+.DS_Store
