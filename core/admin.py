@@ -1,8 +1,20 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
 from . import models
 
+
+class FlatPageAdmin(UserAdmin):
+    fieldsets = UserAdmin.fieldsets+(
+        ('Advanced options', {
+#            'classes': ('collapse',),
+            'fields': ('bio', 'location'),
+        }),
+    )
+
+
 # Register your models here.
+admin.site.register(models.User, FlatPageAdmin)
 admin.site.register(models.Adminlogin)
 admin.site.register(models.Question)
 admin.site.register(models.School)

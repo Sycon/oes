@@ -1,6 +1,20 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    # pp = models.ImageField(upload_to='/home/chimaobi/ws/Python/oes/static/globals/images',
+    #                        default='/home/chimaobi/ws/Python/oes/static/globals/images/profile.jpg')
+    #
+    # def image_tag(self):
+    #     return u'<img src="%s" />' % self.pp.url
+    #
+    # image_tag.short_description = 'Image'
+    # image_tag.allow_tags = True
 
 
 class Adminlogin(models.Model):
@@ -66,7 +80,7 @@ class Studenttest(models.Model):
     starttime = models.DateTimeField()
     endtime = models.DateTimeField()
     correctlyanswered = models.IntegerField(blank=True, null=True)
-    status = models.CharField(max_length=10, blank=True, null=True, choices=(('O', 'Over'), ('I','Inprogress')))
+    status = models.CharField(max_length=10, blank=True, null=True, choices=(('O', 'Over'), ('I', 'Inprogress')))
 
     class Meta:
         db_table = 'studenttest'
