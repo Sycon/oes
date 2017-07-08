@@ -11,6 +11,7 @@ router.register(r'user', views.UserView)
 
 urlpatterns = [
     url(r'^$', views.index),
+    url(r'^exam$', views.exam),
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

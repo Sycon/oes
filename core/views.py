@@ -13,6 +13,10 @@ def index(request):
     return render(request, 'core/index.html')
 
 
+def exam(request):
+    return render(request, 'core/exam.html')
+
+
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
